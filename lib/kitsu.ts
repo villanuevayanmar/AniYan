@@ -19,14 +19,13 @@ type KitsuEpisode = {
     canonicalTitle?: string | null;
     titles?: { en_us?: string | null; ja_jp?: string | null };
     number?: number | null;
-    synopsis?: string | null;
   };
 };
 export type Anime = {
   mal_id: number; title: string; title_english?: string | null; synopsis?: string | null;
   episodes?: number | null; score?: number | null; year?: number | null; type?: string | null;
   status?: string | null;
-  images?: { jpg?: { large_image_url?: string } };
+  images?: { jpg?: { large_image_url?: string }; webp?: { large_image_url?: string; image_url?: string } };
   trailer?: { url?: string | null };
 };
 export type AnimeEpisode = { mal_id: number; title: string; title_japanese?: string | null };
@@ -40,7 +39,7 @@ export function mapAnime(item: KitsuAnime): Anime {
     title_english:a.titles?.en ?? a.canonicalTitle ?? null,
     synopsis:a.synopsis ?? null,
     episodes:a.episodeCount ?? null,
-    score:Number.isFinite(rating as number) && rating !== null ? Math.round((rating as number)/10*10)/10 : null,
+    score:rating !== null && Number.isFinite(rating) ? Math.round(rating/10*10)/10 : null,
     year:a.startDate ? Number(a.startDate.slice(0,4)) : undefined,
     type:a.subtype ?? "Anime",
     status:a.status ?? undefined,
