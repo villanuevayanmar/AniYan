@@ -7,7 +7,7 @@ const KITSU = "https://kitsu.io/api/edge";
 
 export async function GET(_request: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  if (!/^\\d+$/.test(id)) return NextResponse.json({ error: "Invalid anime ID." }, { status: 400 });
+  if (!/^\d+$/.test(id)) return NextResponse.json({ error: "Invalid anime ID." }, { status: 400 });
   try {
     try {
       const [animeResponse, episodesResponse] = await Promise.all([

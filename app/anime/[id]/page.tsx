@@ -9,7 +9,7 @@ const KITSU = "https://kitsu.io/api/edge";
 
 export default async function AnimePage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  if (!/^\\d+$/.test(id)) notFound();
+  if (!/^\d+$/.test(id)) notFound();
   let anime: Anime | undefined;
   let episodes: ReturnType<typeof mapTenraiEpisode>[] = [];
   try {
