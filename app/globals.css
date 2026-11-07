@@ -1,0 +1,17 @@
+@import "tailwindcss";
+:root{color-scheme:dark;--bg:#09090f;--surface:#12121c;--muted:#9693a8;--purple:#c69aff;--pink:#ff91ca}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:radial-gradient(ellipse at 80% -10%,rgba(160,90,220,.18),transparent 42%),var(--bg);color:#f7f3ff;font-family:Arial,Helvetica,sans-serif}
+::selection{background:#9560bd;color:white}
+.container-shell{width:min(1320px,calc(100% - 40px));margin-inline:auto}
+.gradient-text{background:linear-gradient(100deg,#fff 5%,#d6b1ff 52%,#ff9acb);-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{background:rgba(18,17,30,.76);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(18px)}
+.hero-glow{background:radial-gradient(ellipse at 78% 45%,rgba(165,91,226,.25),transparent 38%),linear-gradient(90deg,#09090f 5%,rgba(9,9,15,.9) 48%,rgba(9,9,15,.18))}
+.poster-card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.poster-card:hover{transform:translateY(-5px);border-color:rgba(198,154,255,.6);box-shadow:0 16px 45px #0006}
+.poster-image{transition:transform .45s ease}
+.poster-card:hover .poster-image{transform:scale(1.045)}
+.shimmer{background:linear-gradient(100deg,#171625 25%,#28223a 40%,#171625 55%);background-size:200% 100%;animation:shine 1.4s ease infinite}
+@keyframes shine{to{background-position-x:-200%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
